@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h4>Requests: <%= requests.length %></h4>
+    <table>
+      <tr>
+         <th>ID</th><th>Name</th><th>Email</th><th>State</th><th>#</th><th>#</th>
+      </tr>
+      <% for (var i = 0; i < requests.length; i++) { %>
+       <tr>
+         <td><%= requests[i].id %></td>
+         <td><%= requests[i].name %></td>
+         <td><%= requests[i].email %></td>
+         <td><%= requests[i].state %></td>
+         <td><a href="/admin/approve/<%= requests[i].id %>">approve</a></td>
+         <td><a href="/admin/reject/<%= requests[i].id %>">reject</a></td>
+       </tr>    
+      <% } %>
+   </table>
+  </body>
+  <script type="text/javascript">
+/*
+    const sendPost = async (url, params) => {
+      return new Promise((req, rej) => {
+        var http = new XMLHttpRequest();
+        http.open('POST', url, true);
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.onreadystatechange = () => {
+          if(http.readyState == 4 && http.status == 200) {
+            req(http.responseText);
+          } else {
+            rej(http.responseText);
+          }
+        };
+        http.send(params);
+      });
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("registration_user");
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        var data = new FormData(form);
+        await sendPost("/create", data);
+      });
+    });
+*/
+  </script>
+</html>

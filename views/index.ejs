@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form id="registration_user" action="/create" method="POST">
+      <p>Username: <input type="text" name="name" value=""></p>
+      <p>Password: <input type="password" name="password" value=""></p>
+      <p>Email: <input type="email" name="email" value=""></p>
+      <p><input type="submit"></p>
+    </form>
+
+    <% if ( successFlash && successFlash.length > 0 ) { %>
+      <p>Success: <%= successFlash %> </p>
+    <% } %>
+
+    <% if ( errorFlash && errorFlash.length > 0 ) { %>
+      <p>Message: <%= errorFlash %> </p>
+    <% } %>
+  </body>
+</html>
